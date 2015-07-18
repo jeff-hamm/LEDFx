@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{E7FE9D8D-BFC5-4B4D-A30A-C782AC4F33C6}</ProjectGuid>
+    <RootNamespace>LEDLib</RootNamespace>
+    <ProjectName>LEDFx</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>C:\Projects\Utils\arduino-1.0.3\hardware\teensy\cores\teensy3;c:\projects\utils\arduino-1.0.3\hardware\tools\avr\avr\include\;c:\projects\utils\arduino-1.0.3\hardware\tools\avr\avr\include\avr\;c:\projects\utils\arduino-1.0.3\hardware\tools\avr\avr\;c:\projects\utils\arduino-1.0.3\hardware\tools\avr\lib\gcc\avr\4.3.2\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>C:\Users\ddujxh0\Documents\Arduino\libraries\ledfxlib\Visual Micro\.ledfxlib.vsarduino.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
+      <PreprocessorDefinitions>ARDUINO=103;__AVR_MK20DX128__;__AVR__;__cplusplus;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <GenerateXMLDocumentationFiles>true</GenerateXMLDocumentationFiles>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy /Y $(MSBuildProjectDirectory)/*.h C:\Projects\arduino-1.0.2\libraries\LEDFx
+copy /Y $(MSBuildProjectDirectory)/*.cpp C:\Projects\arduino-1.0.2\libraries\LEDFx
+</Command>
+      <Message>Copy</Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="EffectColorRotation.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
+    <ClInclude Include="EffectCustom.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
+    <ClInclude Include="EffectProgressBar.h" />
+    <ClInclude Include="EffectRainbow.h" />
+    <ClInclude Include="EffectRandomPixels.h" />
+    <ClInclude Include="EffectSineWave.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
+    <ClInclude Include="EffectSolidColor.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
+    <ClInclude Include="EffectTwinkle.h" />
+    <ClInclude Include="IDrawable.h" />
+    <ClInclude Include="LEDEffect.h" />
+    <ClInclude Include="RangeInfoList.h" />
+    <ClInclude Include="LEDFxLib.h" />
+    <ClInclude Include="LEDFx.h" />
+    <ClInclude Include="LedFxUtilities.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
+    <ClInclude Include="Pixel.h" />
+    <ClInclude Include="Visual Micro\.ledfxlib.vsarduino.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="EffectColorRotation.cpp" />
+    <ClCompile Include="EffectCustom.cpp" />
+    <ClCompile Include="EffectProgressBar.cpp" />
+    <ClCompile Include="EffectRainbow.cpp" />
+    <ClCompile Include="EffectRandomPixels.cpp" />
+    <ClCompile Include="EffectSineWave.cpp" />
+    <ClCompile Include="EffectSolidColor.cpp" />
+    <ClCompile Include="EffectTwinkle.cpp" />
+    <ClCompile Include="LEDEffect.cpp" />
+    <ClCompile Include="RangeInfoList.cpp" />
+    <ClCompile Include="LEDFxLib.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties arduino.board.name="teensy3" arduino.board.desc="Teensy 3.0" arduino.board.property_bag="teensy3.name=Teensy 3.0&#xD;&#xA;teensy3.upload.protocol=halfkay&#xD;&#xA;teensy3.upload.maximum_size=131072&#xD;&#xA;teensy3.upload.maximum_ram_size=16384&#xD;&#xA;teensy3.upload.speed=12000000&#xD;&#xA;teensy3.upload.disable_flushing=true&#xD;&#xA;teensy3.bootloader.path=undefined&#xD;&#xA;teensy3.serial.restart_cmd=true&#xD;&#xA;teensy3.serial.safe_baud_rates_only=true&#xD;&#xA;teensy3.upload.avrdude_wrapper=teensy_reboot&#xD;&#xA;teensy3.build.mcu=mk20dx128&#xD;&#xA;teensy3.build.cpu=cortex-m4&#xD;&#xA;teensy3.build.option1=-mthumb&#xD;&#xA;teensy3.build.option2=-nostdlib&#xD;&#xA;teensy3.build.option3=-D__MK20DX128__&#xD;&#xA;teensy3.build.cppoption1=-fno-rtti&#xD;&#xA;teensy3.build.linkoption1=-mthumb &#xD;&#xA;teensy3.build.linkscript=mk20dx128.ld&#xD;&#xA;teensy3.build.architecture=arm-none-eabi&#xD;&#xA;teensy3.build.command.gcc=arm-none-eabi-gcc&#xD;&#xA;teensy3.build.command.g++=arm-none-eabi-g++&#xD;&#xA;teensy3.build.command.ar=arm-none-eabi-ar&#xD;&#xA;teensy3.build.command.objcopy=arm-none-eabi-objcopy&#xD;&#xA;teensy3.build.command.objdump=arm-none-eabi-objdump&#xD;&#xA;teensy3.build.command.size=arm-none-eabi-size&#xD;&#xA;teensy3.build.core=teensy3&#xD;&#xA;teensy3.build.noarchive=true&#xD;&#xA;teensy3.build.elide_constructors=true&#xD;&#xA;teensy3.build.gnu0x=true&#xD;&#xA;teensy3.build.dependency=true&#xD;&#xA;teensy3.build.time_t=true&#xD;&#xA;teensy3.build.post_compile_script=teensy_post_compile&#xD;&#xA;teensy3.menu.usb.serial.name=Serial&#xD;&#xA;teensy3.menu.usb.serial.build.define0=-DUSB_SERIAL&#xD;&#xA;teensy3.menu.usb.hid.name=Keyboard + Mouse + Joystick&#xD;&#xA;teensy3.menu.usb.hid.build.define0=-DUSB_HID&#xD;&#xA;teensy3.menu.usb.hid.fake_serial=teensy_gateway&#xD;&#xA;teensy3.menu.usb.serialhid.name=Serial + Keyboard + Mouse + Joystick&#xD;&#xA;teensy3.menu.usb.serialhid.build.define0=-DUSB_SERIAL_HID&#xD;&#xA;teensy3.menu.usb.midi.name=MIDI&#xD;&#xA;teensy3.menu.usb.midi.build.define0=-DUSB_MIDI&#xD;&#xA;teensy3.menu.usb.midi.fake_serial=teensy_gateway&#xD;&#xA;teensy3.menu.usb.rawhid.name=Raw HID&#xD;&#xA;teensy3.menu.usb.rawhid.build.define0=-DUSB_RAWHID&#xD;&#xA;teensy3.menu.usb.rawhid.fake_serial=teensy_gateway&#xD;&#xA;teensy3.menu.usb.flightsim.name=Flight Sim Controls&#xD;&#xA;teensy3.menu.usb.flightsim.build.define0=-DUSB_FLIGHTSIM&#xD;&#xA;teensy3.menu.usb.flightsim.fake_serial=teensy_gateway&#xD;&#xA;teensy3.menu.speed.96.name=96 MHz (overclock)&#xD;&#xA;teensy3.menu.speed.48.name=48 MHz&#xD;&#xA;teensy3.menu.speed.24.name=24 MHz&#xD;&#xA;teensy3.menu.speed.96.build.f_cpu=96000000&#xD;&#xA;teensy3.menu.speed.48.build.f_cpu=48000000&#xD;&#xA;teensy3.menu.speed.24.build.f_cpu=24000000&#xD;&#xA;teensy3.menu.keys.en-us.name=US English&#xD;&#xA;teensy3.menu.keys.en-us.build.define1=-DLAYOUT_US_ENGLISH&#xD;&#xA;teensy3.menu.keys.fr-ca.name=Canadian French&#xD;&#xA;teensy3.menu.keys.fr-ca.build.define1=-DLAYOUT_CANADIAN_FRENCH&#xD;&#xA;teensy3.menu.keys.xx-ca.name=Canadian Multilingual&#xD;&#xA;teensy3.menu.keys.xx-ca.build.define1=-DLAYOUT_CANADIAN_MULTILINGUAL&#xD;&#xA;teensy3.menu.keys.da-da.name=Danish&#xD;&#xA;teensy3.menu.keys.da-da.build.define1=-DLAYOUT_DANISH&#xD;&#xA;teensy3.menu.keys.fi-fi.name=Finnish&#xD;&#xA;teensy3.menu.keys.fi-fi.build.define1=-DLAYOUT_FINNISH&#xD;&#xA;teensy3.menu.keys.fr-fr.name=French&#xD;&#xA;teensy3.menu.keys.fr-fr.build.define1=-DLAYOUT_FRENCH&#xD;&#xA;teensy3.menu.keys.fr-be.name=French Belgian&#xD;&#xA;teensy3.menu.keys.fr-be.build.define1=-DLAYOUT_FRENCH_BELGIAN&#xD;&#xA;teensy3.menu.keys.fr-ch.name=French Swiss&#xD;&#xA;teensy3.menu.keys.fr-ch.build.define1=-DLAYOUT_FRENCH_SWISS&#xD;&#xA;teensy3.menu.keys.de-de.name=German&#xD;&#xA;teensy3.menu.keys.de-de.build.define1=-DLAYOUT_GERMAN&#xD;&#xA;teensy3.menu.keys.de-dm.name=German (Mac)&#xD;&#xA;teensy3.menu.keys.de-dm.build.define1=-DLAYOUT_GERMAN_MAC&#xD;&#xA;teensy3.menu.keys.de-ch.name=German Swiss&#xD;&#xA;teensy3.menu.keys.de-ch.build.define1=-DLAYOUT_GERMAN_SWISS&#xD;&#xA;teensy3.menu.keys.is-is.name=Icelandic&#xD;&#xA;teensy3.menu.keys.is-is.build.define1=-DLAYOUT_ICELANDIC&#xD;&#xA;teensy3.menu.keys.en-ie.name=Irish&#xD;&#xA;teensy3.menu.keys.en-ie.build.define1=-DLAYOUT_IRISH&#xD;&#xA;teensy3.menu.keys.it-it.name=Italian&#xD;&#xA;teensy3.menu.keys.it-it.build.define1=-DLAYOUT_ITALIAN&#xD;&#xA;teensy3.menu.keys.no-no.name=Norwegian&#xD;&#xA;teensy3.menu.keys.no-no.build.define1=-DLAYOUT_NORWEGIAN&#xD;&#xA;teensy3.menu.keys.pt-pt.name=Portuguese&#xD;&#xA;teensy3.menu.keys.pt-pt.build.define1=-DLAYOUT_PORTUGUESE&#xD;&#xA;teensy3.menu.keys.pt-br.name=Portuguese Brazilian&#xD;&#xA;teensy3.menu.keys.pt-br.build.define1=-DLAYOUT_PORTUGUESE_BRAZILIAN&#xD;&#xA;teensy3.menu.keys.es-es.name=Spanish&#xD;&#xA;teensy3.menu.keys.es-es.build.define1=-DLAYOUT_SPANISH&#xD;&#xA;teensy3.menu.keys.es-mx.name=Spanish Latin America&#xD;&#xA;teensy3.menu.keys.es-mx.build.define1=-DLAYOUT_SPANISH_LATIN_AMERICA&#xD;&#xA;teensy3.menu.keys.sv-se.name=Swedish&#xD;&#xA;teensy3.menu.keys.sv-se.build.define1=-DLAYOUT_SWEDISH&#xD;&#xA;teensy3.menu.keys.en-gb.name=United Kingdom&#xD;&#xA;teensy3.menu.keys.en-gb.build.define1=-DLAYOUT_UNITED_KINGDOM&#xD;&#xA;teensy3.menu.keys.usint.name=US International&#xD;&#xA;teensy3.menu.keys.usint.build.define1=-DLAYOUT_US_INTERNATIONAL&#xD;&#xA;" arduino.build.mcu="mk20dx128" arduino.build.f_cpu="" arduino.build.core="teensy3" arduino.upload.protocol="halfkay" arduino.upload.speed="12000000" arduino.upload.maximum_size="131072" arduino.upload.port="COM13" VM_ADDITIONAL_PREPROC="" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
