@@ -14,16 +14,22 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-#include "Pixel.h"
-#include "LEDUtil.h"
-#include "LEDFxClass.h"
-#include "LEDEffect.h"
-#include "LinkedList.h"
-#include "utility/EffectCustom.h"
-#include "utility/EffectSineWave.h"
-#include "utility/EffectSolidColor.h"
-#include "utility/EffectColorRotation.h"
-#include "utility/EffectRandomPixels.h"
-#include "utility/EffectRainbow.h"
-#include "utility/EffectProgressBar.h"
-#include "utility/EffectTwinkle.h"
+#ifndef INC_SOLIDCOLOREFFECT_H
+#define INC_SOLIDCOLOREFFECT_H
+
+#include "Effect.h"
+
+// A simple effect that displays a static color over the range
+class EffectSolidColor : public LEDEffect
+{
+public:
+	// Create a solid color effect for the specified color
+	EffectSolidColor();
+	void renderFrame(uint16_t currentFrame, const LEDStripSection & context, CRGB * ledBuffer)
+	{
+		fill_solid(ledBuffer, context.size(), context.getRefRGB1());
+	}
+};
+
+
+#endif

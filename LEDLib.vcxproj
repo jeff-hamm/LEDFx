@@ -74,45 +74,41 @@ copy /Y $(MSBuildProjectDirectory)/*.cpp C:\Projects\arduino-1.0.2\libraries\LED
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="EffectColorRotation.h">
+    <ClInclude Include="utility\Effect.h" />
+    <ClInclude Include="utility\EffectColorRotation.h">
       <FileType>CppCode</FileType>
     </ClInclude>
-    <ClInclude Include="EffectCustom.h">
+    <ClInclude Include="utility\EffectCustom.h">
       <FileType>CppCode</FileType>
     </ClInclude>
-    <ClInclude Include="EffectProgressBar.h" />
-    <ClInclude Include="EffectRainbow.h" />
-    <ClInclude Include="EffectRandomPixels.h" />
-    <ClInclude Include="EffectSineWave.h">
+    <ClInclude Include="utility\EffectNone.h" />
+    <ClInclude Include="utility\EffectProgressBar.h" />
+    <ClInclude Include="utility\EffectRainbow.h" />
+    <ClInclude Include="utility\EffectRandomPixels.h" />
+    <ClInclude Include="utility\EffectSineWave.h">
       <FileType>CppCode</FileType>
     </ClInclude>
-    <ClInclude Include="EffectSolidColor.h">
+    <ClInclude Include="utility\EffectSolidColor.h">
       <FileType>CppCode</FileType>
     </ClInclude>
-    <ClInclude Include="EffectTwinkle.h" />
-    <ClInclude Include="IDrawable.h" />
+    <ClInclude Include="utility\EffectTwinkle.h" />
     <ClInclude Include="LEDEffect.h" />
-    <ClInclude Include="RangeInfoList.h" />
-    <ClInclude Include="LEDFxLib.h" />
+    <ClInclude Include="LinkedList.h" />
+    <ClInclude Include="LEDFxClass.h" />
     <ClInclude Include="LEDFx.h" />
-    <ClInclude Include="LedFxUtilities.h">
+    <ClInclude Include="LEDUtil.h">
       <FileType>CppCode</FileType>
     </ClInclude>
+    <ClInclude Include="LEDStripSection.h" />
     <ClInclude Include="Pixel.h" />
+    <ClInclude Include="ReferenceColor.h" />
     <ClInclude Include="Visual Micro\.ledfxlib.vsarduino.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="EffectColorRotation.cpp" />
-    <ClCompile Include="EffectCustom.cpp" />
-    <ClCompile Include="EffectProgressBar.cpp" />
-    <ClCompile Include="EffectRainbow.cpp" />
-    <ClCompile Include="EffectRandomPixels.cpp" />
-    <ClCompile Include="EffectSineWave.cpp" />
-    <ClCompile Include="EffectSolidColor.cpp" />
-    <ClCompile Include="EffectTwinkle.cpp" />
+    <ClCompile Include="utility\EffectColorRotation.cpp" />
     <ClCompile Include="LEDEffect.cpp" />
-    <ClCompile Include="RangeInfoList.cpp" />
-    <ClCompile Include="LEDFxLib.cpp" />
+    <ClCompile Include="LEDFxClass.cpp" />
+    <ClCompile Include="LEDStripSection.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

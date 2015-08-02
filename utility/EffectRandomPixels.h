@@ -14,16 +14,25 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-#include "Pixel.h"
-#include "LEDUtil.h"
-#include "LEDFxClass.h"
-#include "LEDEffect.h"
-#include "LinkedList.h"
-#include "utility/EffectCustom.h"
-#include "utility/EffectSineWave.h"
-#include "utility/EffectSolidColor.h"
-#include "utility/EffectColorRotation.h"
-#include "utility/EffectRandomPixels.h"
-#include "utility/EffectRainbow.h"
-#include "utility/EffectProgressBar.h"
-#include "utility/EffectTwinkle.h"
+#ifndef EffectRandomPixels_h
+#define EffectRandomPixels_h
+
+#include "Effect.h"
+
+// renders random leds over the section with hue and saturation based on referencecolor1
+class EffectRandomPixels :
+	public LEDEffect
+{
+public:
+	EffectRandomPixels() {}
+	virtual void renderFrame(uint16_t currentFrame, const LEDStripSection & context, CRGB * ledBuffer)
+	{
+		for (uint16_t i = 0; i < context.size(); i++) {
+			ledBuffer[i] = LEDUtil::randomColor(context.getRefHSV1());
+		}
+	}
+
+
+};
+
+#endif

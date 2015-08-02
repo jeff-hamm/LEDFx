@@ -1,15 +1,34 @@
-// LEDEffect.cpp
-//
+/*
+Copyright 2015 Jeff Hamm <jeff.hamm@gmail.com>
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
 
 #include "LEDEffect.h"
 
 LEDEffect::LEDEffect() {
-	setFramerate(1000, FRAME_ORDER_SEQUENTIAL);
+	setFramerate(1000, AlwaysSequential);
 }
 
-void LEDEffect::setFramerate (float framesPerSecond, frame_order frameOrder) {
+LEDEffect::LEDEffect(const LEDEffect& copy) {
+	waitTime = copy.waitTime;
+	lagHandling = copy.lagHandling;
+	currentFrame = copy.currentFrame;
+}
+
+void LEDEffect::setFramerate (float framesPerSecond, FrameLagHandling lagHandling) {
 	this->waitTime = 1000/framesPerSecond;
-	this->frameOrder = frameOrder;
+	this->lagHandling = lagHandling;
 	currentFrame = 0;
 }
 
@@ -18,37 +37,20 @@ void LEDEffect::reset ()
 	currentFrame = 0;
 }
 
-void LEDEffect::setFrame (uint16_t currentFrame, RangeInfoList* context)
-{
-	this->currentFrame = currentFrame;
-	this->context = context;
-	if(context->hasArgs)
-		this->setArgs(context->contextArgs);
-}
-
-void reverse(CRGB * buffer, int size) {
-	for(int i = 0; i < size/2; i++)
-	{
-		CRGB tmp = buffer[i];
-		buffer[i] = buffer[(size-1)-i];
-		buffer[(size-1)-i] = tmp;
-	}
-}
-
-
-bool LEDEffect::update(uint32_t runTime, CRGB* buffer, RangeInfoList * context)  {
-	if((runTime - context->lastRefreshTime) > this->waitTime) {
-		if(frameOrder == FRAME_ORDER_SEQUENTIAL) {
-			setFrame(context->refreshCount, context);
+bool LEDEffect::update(uint32_t tDelta, uint16_t updateCount, const LEDStripSection & context, CRGB * ledBuffer)  {
+	if (tDelta >= this->waitTime) {
+		// determine the current frame number
+		if(lagHandling == AlwaysSequential) {
+			this->currentFrame = updateCount;
 		}
+		//FrameLagHandling::DropMissedFrames
 		else {
-			setFrame((runTime - context->startTime) / this->waitTime, context);
+			this->currentFrame = tDelta / this->waitTime;
 		}
-		drawFrame(currentFrame, context, &buffer[context->offset]);
-		if(context->reversed)
-			reverse(&buffer[context->offset], context->size); 
+		// call subclass to render to buffer.
+		renderFrame(currentFrame, context, ledBuffer);
 		return true;
 	}
-	return false;
+	else return false;
 
 }

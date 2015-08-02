@@ -3,6 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LEDFx", "LEDLib.vcxproj", "{E7FE9D8D-BFC5-4B4D-A30A-C782AC4F33C6}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SpaceStairs", "..\..\SpaceStairs\SpaceStairs.vcxproj", "{4FC6B8EC-4574-4273-9D52-496A27105D05}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ESPSerialServer", "..\ESP8266SerialServer\ESP8266SerialServer.vcxproj", "{20372CFF-AC6C-4137-85BD-8BFCD670B499}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SampleReceiver", "..\ESP8266SerialServer\examples\SampleReceiver\SampleReceiver.vcxproj", "{09A6A8A4-68BD-40FB-8F22-478A6FD37C53}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SampleServer", "..\ESP8266SerialServer\examples\SampleServer\SampleServer.vcxproj", "{F5D5F95E-9BAA-44F0-A510-8E970228AC0A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -13,6 +21,22 @@ Global
 		{E7FE9D8D-BFC5-4B4D-A30A-C782AC4F33C6}.Debug|Win32.Build.0 = Debug|Win32
 		{E7FE9D8D-BFC5-4B4D-A30A-C782AC4F33C6}.Release|Win32.ActiveCfg = Release|Win32
 		{E7FE9D8D-BFC5-4B4D-A30A-C782AC4F33C6}.Release|Win32.Build.0 = Release|Win32
+		{4FC6B8EC-4574-4273-9D52-496A27105D05}.Debug|Win32.ActiveCfg = Debug|Win32
+		{4FC6B8EC-4574-4273-9D52-496A27105D05}.Debug|Win32.Build.0 = Debug|Win32
+		{4FC6B8EC-4574-4273-9D52-496A27105D05}.Release|Win32.ActiveCfg = Release|Win32
+		{4FC6B8EC-4574-4273-9D52-496A27105D05}.Release|Win32.Build.0 = Release|Win32
+		{20372CFF-AC6C-4137-85BD-8BFCD670B499}.Debug|Win32.ActiveCfg = Debug|Win32
+		{20372CFF-AC6C-4137-85BD-8BFCD670B499}.Debug|Win32.Build.0 = Debug|Win32
+		{20372CFF-AC6C-4137-85BD-8BFCD670B499}.Release|Win32.ActiveCfg = Release|Win32
+		{20372CFF-AC6C-4137-85BD-8BFCD670B499}.Release|Win32.Build.0 = Release|Win32
+		{09A6A8A4-68BD-40FB-8F22-478A6FD37C53}.Debug|Win32.ActiveCfg = Debug|Win32
+		{09A6A8A4-68BD-40FB-8F22-478A6FD37C53}.Debug|Win32.Build.0 = Debug|Win32
+		{09A6A8A4-68BD-40FB-8F22-478A6FD37C53}.Release|Win32.ActiveCfg = Release|Win32
+		{09A6A8A4-68BD-40FB-8F22-478A6FD37C53}.Release|Win32.Build.0 = Release|Win32
+		{F5D5F95E-9BAA-44F0-A510-8E970228AC0A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F5D5F95E-9BAA-44F0-A510-8E970228AC0A}.Debug|Win32.Build.0 = Debug|Win32
+		{F5D5F95E-9BAA-44F0-A510-8E970228AC0A}.Release|Win32.ActiveCfg = Release|Win32
+		{F5D5F95E-9BAA-44F0-A510-8E970228AC0A}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,28 +1,23 @@
-#define LEDLIB_GRB_ORDER
-#include <LEDFx.h>
-#include <FastSPI_LED2.h>
-#define NUM_LEDS 20
-LPD8806Controller<11, 13, 10> LED;
-RGB buffer[NUM_LEDS];
-LEDFxLib ledFx(NUM_LEDS);
-EffectRandomPixels rndm;
+#include "FastLED.h"
+#include "LEDFx.h"
 
-void setup()
-{
-	// Initialize fastSPI
-	LED.init();
+#define NUM_LEDS 20
+const int LED_PIN = 17;
+
+CRGB leds[NUM_LEDS];
+EffectSineWave sinWave;
+
+void setup() {
+	LEDS.addLeds<WS2811, LED_PIN, BRG>(leds, NUM_LEDS);
 	// Initialize LEDFx
-	ledFx.init(buffer);
-	// Set the hue and saturation
-	rndm.setProperties(255,255);
-	// Set the FPS
-	rndm.setFramerate(8);
+	LEDFx.init(leds, NUM_LEDS);
+
 	// Set the current effect
-	ledFx.setCurrentEffect(rndm);
+	LEDFx.setEffect(sinWave);
 }
 
-void loop()
-{
-	if(ledFx.update())
-		LED.showRGB((byte*)buffer, NUM_LEDS );
+void loop() {
+	if (LEDFx.update()) {
+		LEDS.show();
+	}
 }
