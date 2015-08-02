@@ -1,0 +1,12 @@
+Provides a clean interface for common LED lighting effects tasks.The library is designed to be non - blocking so that you can attend to sensors and other code paths without waiting for LED effects to complete.
+
+Features
+Quickly get your lighting working, so you can focus on the other parts of your project!
+Non - blocking loops.Keep your sensor / application code isolated from your lighting code without requiring the use the Arduino interrupt system.
+Library of pre - written lighting effects
+Works well with the fantastic FastLED library(https://github.com/FastLED/FastLED) to work efficiently on a large number of chipsets.
+Easy to write custom effects.
+Teensy 3, 3.1  and Arduino Support
+Supports dividing a single strip into multiple logical ranges and seamlessly apply effects to any single range.
+
+Adding an effect to your LED Strip is as easy as creating a effects class, setting it's framerate, and looping an update.
